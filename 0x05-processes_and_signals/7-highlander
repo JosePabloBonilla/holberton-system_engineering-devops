@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# bash script that displays infinity and beyond with I am invincible SIGTERM signal
+while :
+	do
+		trap "echo I am invincible!!!" SIGTERM
+		echo To infinity and beyond
+		sleep 2
+	done
