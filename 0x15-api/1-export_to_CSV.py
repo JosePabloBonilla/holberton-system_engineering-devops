@@ -12,9 +12,9 @@ if __name__ == '__main__':
 
     sessionReq = requests.Session()
 
-    emp_id = argv[1]
-    url_todo = 'https://jsonplaceholder.typicode.com/todos/'.format(emp_id)
-    url_user = 'https://jsonplaceholder.typicode.com/users/'.format(emp_id)
+    e_id = argv[1]
+    u_todo = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(e_id)
+    url_user = 'https://jsonplaceholder.typicode.com/users/{}'.format(e_id)
 
     emp = sessionReq.get(url_todo)
     emp_name = sessionReq.get(url_user)
@@ -28,7 +28,7 @@ if __name__ == '__main__':
         if done_tasks['completed']:
             totalTasks += 1
 
-    fileCSV = emp_id + '.csv'
+    fileCSV = e_id + '.csv'
 
     with open(fileCSV, "w", newline='') as csvfile:
         write = csv.writer(csvfile, delimeter=',', quoting=csv.QUOTE_ALL)
