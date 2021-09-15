@@ -3,7 +3,8 @@
 using this REST API, for a given employee ID,
 returns information about his/her TODO list progress.
 """
-import request
+import json
+import requests
 import sys
 
 
