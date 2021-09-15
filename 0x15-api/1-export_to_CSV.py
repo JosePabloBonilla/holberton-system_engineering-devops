@@ -2,8 +2,8 @@
 """
 script to export data in the CSV format
 """
-import json
 import csv
+import json
 import requests
 from sys import argv
 
@@ -16,7 +16,7 @@ if __name__ == '__main__':
     u_todo = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(e_id)
     url_user = 'https://jsonplaceholder.typicode.com/users/{}'.format(e_id)
 
-    emp = sessionReq.get(url_todo)
+    emp = sessionReq.get(u_todo)
     emp_name = sessionReq.get(url_user)
 
     json_req = emp.json()
@@ -31,6 +31,6 @@ if __name__ == '__main__':
     fileCSV = e_id + '.csv'
 
     with open(fileCSV, "w", newline='') as csvfile:
-        write = csv.writer(csvfile, delimeter=',', quoting=csv.QUOTE_ALL)
+        write = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_ALL)
         for i in json_req:
             write.writerow([e_id, user, i.get('completed'), i.get('title')])
