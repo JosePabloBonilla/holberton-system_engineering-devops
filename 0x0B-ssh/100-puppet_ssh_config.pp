@@ -7,7 +7,7 @@ file_line { 'BatchMode':
   line   => 'PasswordAuthentication no'
 }
 
-file line { 'IdentityFile':
+file_line { 'IdentityFile':
   ensure => 'present',
   path   => 'etc/ssh/ssh_config',
   line   => 'IdentityFile ~/.shh/school'
