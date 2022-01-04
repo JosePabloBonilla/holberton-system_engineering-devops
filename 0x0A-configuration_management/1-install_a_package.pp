@@ -1,5 +1,6 @@
 #install Puppet linter
-package { 'task 1 puppet linter':
-ensure   => '2.5.0',
-provider => 'gem',
+package { 'puppet-lint':
+  ensure   => '2.5.0',
+  provider => 'gem',
+  source   => 'https://rubygems.org'
 }
