@@ -1,7 +1,7 @@
 ## SSH
 0. Use a private key
 
-Write a Bash script that uses ssh to connect to your server using the private key ~/.ssh/holberton with the user ubuntu.
+Write a Bash script that uses ssh to connect to your server using the private key ~/.ssh/school with the user ubuntu.
 
 Requirements:
 
@@ -15,7 +15,7 @@ Write a Bash script that creates an RSA key pair.
 
 Requirements:
 
-    Name of the created private key must be holberton
+    Name of the created private key must be school
     Number of bits in the created key to be created 4096
     The created key must be protected by the passphrase betty
 
@@ -25,7 +25,7 @@ Your Ubuntu Vagrant machine has an SSH configuration file for the local SSH clie
 
 Requirements:
 
-    Your SSH client configuration must be configured to use the private key ~/.ssh/holberton
+    Your SSH client configuration must be configured to use the private key ~/.ssh/school
     Your SSH client configuration must be configured to refuse to authenticate using a password
 
 3. Let me in!
