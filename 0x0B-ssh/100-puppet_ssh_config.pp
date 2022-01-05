@@ -10,5 +10,5 @@ file_line { 'BatchMode':
 file_line { 'IdentityFile':
   ensure => 'present',
   path   => '/etc/ssh/ssh_config',
-  line   => 'IdentityFile ~/.shh/school'
+  line   => 'IdentityFile ~/.ssh/school'
 }
