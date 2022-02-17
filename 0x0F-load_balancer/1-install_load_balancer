@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Installing && configuring haproxy for redundancy of two servers
+
+# | Updating and installing haproxy && installing nginx
+sudo apt-get update -y
+sudo apt-get install haproxy -y
+# | Changing ENABLED value to 1 to be started by init script
+enbl="\\\n#Enable value 1 to be started by init script\nENABLED=1\n"
+sudo sed -i "11i $enbl" /etc/default/haproxy
+# | Creating a backup file of the original haproxy configuration file
+sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy_backup.cfg
+# | Variables for servers hostnames
+web01="2361-web-01"
+web02="2361-web-02"
+# | Frontend and Backend configurations lines
+frontend="frontend haproxynode\n\tbind *:80\n\tmode http\n\tdefault_backend backendnodes\n"
+backend="backend backendnodes\n\tbalance roundrobin\n\tserver $web01 34.139.234.80:80 check\n\tserver $web02 104.196.35.48:80 check"
+# | Insert lines in haproxy.cfg
+sudo sed -i "36i $frontend$backend" /etc/haproxy/haproxy.cfg
+# | Restart haproxy service
+sudo service haproxy restart
